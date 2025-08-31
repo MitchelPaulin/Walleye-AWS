@@ -27,3 +27,7 @@ sudo systemctl enable --now lichess-bot
 journalctl -u lichess-bot -f
 ```
 
+## On compilation 
+
+Building from source can be too CPU/RAM intensive on some cheaper hosting instances, to circumvent this the deploy script is set up to simply download an binary already compiled to target x86_64, the deploy script also contains some commented out steps if you would prefer to compile from source if hosting on a stronger instance. 
+
