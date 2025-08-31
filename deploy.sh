@@ -31,7 +31,8 @@ apt-get install -y git python3 python3-pip python3-venv curl
 # Pull the compiled binary from a github release, note its compiled for ubuntu x86_64, if you have a stronger instance or a different architecture, prefer building from source
 
 mkdir -p $APP_DIR/target/release
-curl -L -o $APP_DIR/target/release/walleye https://github.com/MitchelPaulin/lichess-bot/releases/download/1.0.0/walleye
+curl -L -o $APP_DIR/target/release/walleye https://github.com/MitchelPaulin/Walleye-AWS/blob/main/bin/walleye
+curl -L -o $APP_DIR/target/release/komodo.bin https://github.com/MitchelPaulin/Walleye-AWS/blob/main/bin/komodo.bin
 chmod +x $APP_DIR/target/release/walleye
 
 # --- Clone lichess-bot middleware and set up venv ---
@@ -54,14 +55,13 @@ engine:
   ponder: false                     # Think on opponent's time.
 
   polyglot:
-    enabled: false                 # Activate polyglot book.
+    enabled: true                 # Activate polyglot book.
     book:
       standard:                    # List of book file paths for variant standard.
-        - engines/book1.bin
-        - engines/book2.bin
+        - "$APP_DIR/komodo.bin"
     min_weight: 1                  # Does not select moves with weight below min_weight (min 0, max: 100 if normalization isn't "none" else 65535).
-    selection: "weighted_random"   # Move selection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in the 2nd and 3rd case).
-    max_depth: 20                  # How many moves from the start to take from the book.
+    selection: "best_move"         # Move selection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in the 2nd and 3rd case).
+    max_depth: 8                   # How many moves from the start to take from the book.
     normalization: "none"          # Normalization method for the book weights. One of "none", "sum", or "max".
 
   draw_or_resign:

@@ -3,10 +3,9 @@ Walleye binaries and deploy scripts for AWS
 
 ## AWS Deployment
 
-This is the deployment config for Walleye
+This is the deployment config for Walleye. It is set up to using a local opening book up to 8 moves deep then will think on its own. No end game tablebase is used, Walleye will attempt to find Checkmate on its own. 
 
-The lichess token is not included in ./deploy.sh, it must be added manually
-
+The lichess token is not included in `./deploy.sh`, it must be added manually
 
 1. Add the variable to the config
 ```sh
