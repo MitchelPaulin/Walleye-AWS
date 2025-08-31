@@ -31,8 +31,8 @@ apt-get install -y git python3 python3-pip python3-venv curl
 # Pull the compiled binary from a github release, note its compiled for ubuntu x86_64, if you have a stronger instance or a different architecture, prefer building from source
 
 mkdir -p $APP_DIR/target/release
-curl -L -o $APP_DIR/target/release/walleye https://github.com/MitchelPaulin/Walleye-AWS/blob/main/bin/walleye
-curl -L -o $APP_DIR/target/release/komodo.bin https://github.com/MitchelPaulin/Walleye-AWS/blob/main/bin/komodo.bin
+curl -L -o $APP_DIR/target/release/walleye https://github.com/MitchelPaulin/Walleye-AWS/raw/refs/heads/main/bin/walleye
+curl -L -o $APP_DIR/target/release/komodo.bin https://github.com/MitchelPaulin/Walleye-AWS/raw/refs/heads/main/bin/komodo.bin
 chmod +x $APP_DIR/target/release/walleye
 
 # --- Clone lichess-bot middleware and set up venv ---
