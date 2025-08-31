@@ -32,7 +32,7 @@ apt-get install -y git python3 python3-pip python3-venv curl
 
 mkdir -p $APP_DIR/target/release
 curl -L -o $APP_DIR/target/release/walleye https://github.com/MitchelPaulin/Walleye-AWS/raw/refs/heads/main/bin/walleye
-curl -L -o $APP_DIR/target/release/komodo.bin https://github.com/MitchelPaulin/Walleye-AWS/raw/refs/heads/main/bin/komodo.bin
+curl -L -o $APP_DIR/target/release/book/komodo.bin https://github.com/MitchelPaulin/Walleye-AWS/raw/refs/heads/main/bin/komodo.bin
 chmod +x $APP_DIR/target/release/walleye
 
 # --- Clone lichess-bot middleware and set up venv ---
@@ -58,7 +58,7 @@ engine:
     enabled: true                 # Activate polyglot book.
     book:
       standard:                    # List of book file paths for variant standard.
-        - "$APP_DIR/komodo.bin"
+        - "$APP_DIR/target/release/book/komodo.bin"
     min_weight: 1                  # Does not select moves with weight below min_weight (min 0, max: 100 if normalization isn't "none" else 65535).
     selection: "best_move"         # Move selection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in the 2nd and 3rd case).
     max_depth: 8                   # How many moves from the start to take from the book.
