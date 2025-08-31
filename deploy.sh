@@ -30,7 +30,7 @@ apt-get install -y git python3 python3-pip python3-venv curl
 # Compiling a rust project in release mode can be too expensive on some of the cheaper AWS instances, 
 # Pull the compiled binary from a github release, note its compiled for ubuntu x86_64, if you have a stronger instance or a different architecture, prefer building from source
 
-mkdir -p $APP_DIR/target/release
+mkdir -p $APP_DIR/target/release/book
 curl -L -o $APP_DIR/target/release/walleye https://github.com/MitchelPaulin/Walleye-AWS/raw/refs/heads/main/bin/walleye
 curl -L -o $APP_DIR/target/release/book/komodo.bin https://github.com/MitchelPaulin/Walleye-AWS/raw/refs/heads/main/bin/komodo.bin
 chmod +x $APP_DIR/target/release/walleye
